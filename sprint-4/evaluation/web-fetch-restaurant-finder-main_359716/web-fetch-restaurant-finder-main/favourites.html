@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favourites Page</title>
+    <style>
+      /* All Your css for Favourites page goes here  */
+      #fav-container{
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        margin:auto;
+        width:90%;
+        gap:15px
+      }
+      img{
+        width:100%
+      }
+      .nav{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: -40px
+      }
+      #fav-container>div{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding:15px
+      }
+      button{
+        
+        background-color: rgb(225, 10, 10);color:white;
+        border-radius: 5px;
+        border:0px;
+        padding: 5px;
+      }
+      #total{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Masai Restaurant Finder</h1>
+      <a href="./index.html">Home</a>
+      <a href="./favourites.html">Favourites</a>
+    </div>
+    <h1 id="total">Your a total <span id="fav-total">0</span> elements in the favourites</h1>
+    <div id="fav-container">
+      <!-- Here Append All the Favourites-->
+    </div>
+  </body>
+  <script>
+    // All your JS code for Favourites Page goes here
+
+    
+
+    let container =document.getElementById("fav-container")
+
+    let favData=JSON.parse(localStorage.getItem("favourites"))
+
+    if(favData===null)
+    favData=[];
+
+    displayRestaurant(favData)
+
+    function displayRestaurant(data){
+      let total=document.getElementById("fav-total")
+      total.innerText=data.length
+      container.innerHTML=null;
+      
+      data.forEach((element,index)=>{
+       
+        let card = document.createElement("div")
+
+        let image=document.createElement("img")
+        image.setAttribute("src",element.image)
+
+        let name = document.createElement("h3")
+        name.innerText=element.name
+
+        let price_starts_from = document.createElement("h3")
+        price_starts_from.innerText=element.price_starts_from;
+
+        let type = document.createElement("p")
+        type.innerText=element.type
+
+        let rating = document.createElement("p")
+        rating.innerText=element.rating
+
+        let Delete=document.createElement("button")
+        Delete.innerText="Delete";
+
+        Delete.addEventListener("click",()=>{
+          data.splice(index,1)
+          localStorage.setItem("favourites",JSON.stringify(data))
+          displayRestaurant(data);
+        })
+
+            
+        
+
+        card.append(image,name,price_starts_from,type,rating,Delete)
+
+        container.append(card)
+
+      })
+
+      
+    }
+  </script>
+</html>

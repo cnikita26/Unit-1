@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Movie App</title>
+    <style>
+      /* Write necessery styles here  */
+      #movie_container{
+            display:grid;
+            width:90%;
+            margin:auto;
+            grid-template-columns: repeat(4,1fr);
+            gap:20px;
+            margin-top: 20px;
+            text-align: center;
+            
+        }
+        #movie_container img{
+            width:100%;
+        }
+        #search-inp,#search-btn{
+          padding: 10px;
+          
+        }
+        #serach{
+          text-align: center;
+        }
+       .cont{
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="serach">
+      <input type="text" id="search-inp" placeholder="Search"/>
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="movie_container"></div>
+  </body>
+
+  <script>
+    // Write necessery JS here
+
+    let container =document.getElementById("movie_container")
+
+    fetched("avengers");
+
+ function fetched(data){
+  fetch(`https://www.omdbapi.com/?apiKey=43805a03&s=${data}`)
+.then((resObject) => {
+    return resObject.json()
+})
+.then((actualData) => {
+   displayProducts(actualData)
+})
+
+.catch((error) => {
+   console.log(error)
+   let h2=document.createElement("h2")
+   h2.setAttribute("class","error-container")
+   h2.innerText="Movie not found!"
+   container.innerHTML=null;
+   container.append(h2);
+
+})
+ }
+
+let input=document.getElementById("search-inp")
+let btn=document.getElementById("search-btn")
+btn.addEventListener("click" ,() => {
+  fetched(input.value);
+})
+
+function displayProducts(data){
+      container.innerHTML=null;
+    data.Search.forEach((element) => {
+        let pro=document.createElement("div")
+       // pro.setAttribute("class","cont");
+
+        let Poster=document.createElement("img");
+        Poster.setAttribute("src",element.Poster)
+        Poster.setAttribute("class","poster")
+
+        let Title=document.createElement("h2")
+        Title.innerText=element.Title
+        Title.setAttribute("class","title")
+        
+        
+    
+        pro.append(Poster,Title)
+        
+        
+
+        container.append(pro)
+    })
+}
+  </script>
+</html>
+<!-- <script src="./index.js"></script> -->

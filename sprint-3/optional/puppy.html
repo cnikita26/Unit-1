@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://i.pinimg.com/236x/ef/61/10/ef6110d9b81484672c56c8ca9813d4fb--pomeranians-chihuahuas.jpg" alt="Error">
+   <p>
+    <h2 id="heading1">0</h2>
+    <button id="like">Like</button>
+    <h2 id="heading2">0</h2>
+    <button id ="dislike">Dislike</button>
+   </p>
+   
+</body>
+
+<script>
+    
+    let buttonLike = document.getElementById("like");
+    let buttonDislike = document.getElementById("dislike")
+    let likeText=document.getElementById("heading1");
+    let dislikeText=document.getElementById("heading2");
+    
+
+
+    let likeCounter=JSON.parse(localStorage.getItem("like"));
+    let dislikeCounter=JSON.parse(localStorage.getItem("dislike"));
+
+    if(likeCounter==null){
+        likeCounter=0;
+    }
+    if(dislikeCounter==null){
+        dislikeCounter=0;
+    }
+
+    console.log(likeCounter);
+    console.log(dislikeCounter);
+
+    likeText.innerText=likeCounter;
+    dislikeText.innerText=dislikeCounter;
+
+
+    buttonLike.addEventListener("click" ,() => {
+         likeCounter++;
+         localStorage.setItem("like",JSON.stringify(likeCounter));
+         likeText.innerText=likeCounter;
+    });
+
+    buttonDislike.addEventListener("click" ,() => {
+        dislikeCounter++;
+        localStorage.setItem("dislike",JSON.stringify(dislikeCounter));
+        dislikeText.innerText=dislikeCounter;
+    });
+  
+
+    
+</script>
+
+</html>

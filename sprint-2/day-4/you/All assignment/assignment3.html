@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+    <style>
+        #main{
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(2,150px);
+            gap:20px;
+        }
+        #main h3{
+            color:goldenrod
+        }
+        @media screen and (min-width: 600px) and (max-width: 800px) {
+            #main{
+                grid-template-columns:  repeat(2,1fr);
+                 grid-auto-rows: 80px;
+                gap:20px;
+            }
+           
+        }
+        @media screen and (min-width: 150px) and (max-width: 600px) {
+            #main{
+                grid-template-columns:  repeat(1,1fr);
+                 grid-auto-rows: 80px;
+                gap:20px;
+            }
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="container">
+            <div>
+                <h2>Cappuccino</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Americano</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Espresso</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+        </div>
+        <div class="container1">
+            <div>
+                <h2>Macchiato</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Mocha</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Coffee Latte</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+        </div>
+        <div class="container2">
+            <div>
+                <h2>Piccolo Latte</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Ristretto</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+            <div>
+                <h2>Affogato</h2>
+                <h3>$49</h3>
+                <p>Usage of the internet is becoming more common due to rapid advance</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

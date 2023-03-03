@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: 80px 80px 80px;
+            gap: 10px;
+            border-radius: 5px solid white; 
+        }
+        .cont div:nth-child(1){
+            background-color: #444444;
+            color: white;
+            font-size: 20px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            
+        }
+        .cont div:nth-child(2){
+            background-color: #444444;
+            color: white;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            font-size: 20px;
+        }
+        .cont div:nth-child(3){
+            background-color: #444444;
+            color: white;
+            font-size: 20px;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .cont div:nth-child(4){
+            background-color: #444444;
+            color: white;
+            font-size: 20px;
+            grid-column-start: 2;
+            grid-column-end: 5;
+        }
+        .cont div:nth-child(5){
+            background-color: #444444;
+            color: white;
+            font-size: 20px;
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="cont">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+    </div>
+    
+</body>
+</html>

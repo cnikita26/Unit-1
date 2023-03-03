@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* All Your css for Home page goes here  */
+      #restaurant-container{
+        display:grid;
+        grid-template-columns: repeat(4,1fr);
+        margin:auto;
+        width:90%;
+        gap:15px
+      }
+      img{
+        width:100%
+      }
+      #restaurant-container>div{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding:15px
+      }
+      button{
+        display:block;
+        margin:auto;
+        background-color: #2bb6f6;color:white;
+        border-radius: 5px;
+        border:0px;
+        padding: 8px;
+      }
+      #filter{
+        display:block;
+        margin:auto;
+        border:0px;
+        border-radius: 5px;
+        padding: 15px;
+        width:250px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .nav{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: -40px
+      }
+      #alert{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Masai Restaurant Finder</h1>
+      <a href="./index.html">Home</a>
+      <a href="./favourites.html">Favourites</a>
+    </div>
+    <select id="filter">
+      <option value="">Filter By Category</option>
+      <option value="cafe">cafe</option>
+      <option value="ethnic">ethnic</option>
+      <option value="fast_food">fast_food</option>
+    </select>
+    <h1 id="alert"></h1>
+    <div id="restaurant-container">
+      <!-- Here Append All the Products  -->
+    </div>
+  </body>
+  <script>
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/getrestaurants?limit=30`;
+
+
+    // All your JS code for Home Page goes here
+    let filterSelect=document.getElementById("filter")
+
+    let fetchData=[];
+
+    filterSelect.addEventListener("change",()=>{
+      let filtered=fetchData.filter((element)=>{
+         if(element.type===filterSelect.value){
+          return true
+         }else{
+          return false
+         }
+      })
+      //console.log(filtered)
+      displayRestaurant(filtered);
+    })
+
+    let container=document.getElementById("restaurant-container")
+
+    fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/getrestaurants?limit=30")
+    .then((resObject)=>{
+      return resObject.json();
+    })
+
+    .then((actualData)=>{
+      fetchData=actualData.data
+      displayRestaurant(actualData.data)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+
+
+    function displayRestaurant(data){
+      container.innerHTML=null;
+      data.forEach((element)=>{
+        let card = document.createElement("div")
+
+        let image=document.createElement("img")
+        image.setAttribute("src",element.image)
+
+        let name = document.createElement("h3")
+        name.innerText=element.name
+
+        let price_starts_from = document.createElement("h3")
+        price_starts_from.innerText=element.price_starts_from;
+
+        let type = document.createElement("p")
+        type.innerText=element.type
+
+        let rating = document.createElement("p")
+        rating.innerText=element.rating
+
+        let favourites=document.createElement("button")
+        favourites.innerText="Favourites"
+
+        favourites.addEventListener("click",()=>{
+          let favData=JSON.parse(localStorage.getItem("favourites"));
+
+          
+
+          if(favData===null)
+            favData=[];
+
+            let alreadyinFav=false;
+
+            for(let i=0;i<favData.length;i++){
+              if(favData[i].id===element.id){
+                alreadyinFav=true;
+                break;
+              }
+            }
+            let alert=document.getElementById("alert")
+            if(alreadyinFav==true){
+             
+             alert.innerText="Restaurant Already in Favourites"
+            }else{
+              favData.push(element);
+
+              localStorage.setItem("favourites",JSON.stringify(favData))
+              alert.innerText="Restaurant Added To Favourites"
+
+            }
+          
+
+            
+        })
+
+        card.append(image,name,price_starts_from,type,rating,favourites)
+
+        container.append(card)
+
+      })
+    }
+  </script>
+</html>

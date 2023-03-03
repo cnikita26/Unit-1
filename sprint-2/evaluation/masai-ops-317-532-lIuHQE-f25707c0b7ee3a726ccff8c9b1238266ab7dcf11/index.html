@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-101 C2</title>
+    <style>
+      /* Write all necessery styles here  */
+      #container{
+        text-align:center;
+    
+      }
+      
+      #mid>div{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        gap: 50px;
+      }
+      #mid img{
+        width:50px;
+      }
+      
+      #mid>div>p{
+        font-size: 5px;
+      }
+      #mid>div :nth-child(1){
+        background-color: #455a64;
+      }
+      #mid>div :nth-child(2){
+        background-color: #455a64;
+      }
+      #mid>div :nth-child(3){
+        background-color: #455a64;
+      }
+      #mid>div :nth-child(4){
+        background-color: #455a64;
+      }
+      #mid>div :nth-child(5){
+        background-color: #455a64;
+      }
+      #mid>div :nth-child(6){
+        background-color: #455a64;
+      }
+      @media screen and (min-width: 600px) and (max-width: 900px){
+        #mid>div{
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media screen and (min-width: 200px) and (max-width: 600px){
+        #mid>div{
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      #bottom>div{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        gap:50px;
+        margin:auto;
+      }
+      #bottom>div>ul{
+        font-size: 2px;
+      }
+      @media screen and (min-width: 600px) and (max-width: 900px){
+        #bottom>div{
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media screen and (min-width: 200px) and (max-width: 600px){
+        #bottom>div{
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      #top img{
+        width:200px;
+      }
+      #mid>div>p{
+        font-size:5px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="top">
+        <div>
+            <h1>Trillo Workbench</h1>
+          <p>Server-side Low-code Platform</p>
+      
+          <div>
+          <!-- Here should be one div for the text part and one image. Use flex to create the layout  -->
+          <h2>Trillo Workbench helps build Google Cloud applications and solutions for 10%-20% cost and time by packaging standard functions in a runtime.</h2>
+         <h3>90% cost and time-saving</h3>
+          <p>Trillo Workbench can help you save up to 90% time and cost.You can customize it,or the Trillo team , its partners,or the community can help you customize applications. There is no vendor lock, You can still bild the application you are otherwise building using the savings.In the meantime ,you have something to sell and go to market.</p>
+          <h3>How Trillo Workbench achives 90% saving</h3>
+          <p>The 50%-90% of any application is standard . It deals with non-functional aspects such as database,security,workflow,scalability,etc.Yet,to mix the application logic with the standard code ,you need to recreate all of it, Despire several existing libraries,it requires heavy lifting.WHy not simply slide in the application's logic into a running engine,and voila,here comes the application.You don't have to build 50-90%.</p>
+          </div>
+          <div>
+             <img src="https://www.trillo.io/wp-content/uploads/2022/04/trillo-Workbench-UI-Macbook.png" alt="Error"
+             />
+          </div>
+        </div>
+
+      </div>
+
+      <div id="mid">
+        <h1>Trillo Applications</h1>
+        <p>
+          Trillo Applications are customizable end-to-end applications (Open
+          Source Code). The can be used out of the box or extended.
+        </p>
+        
+          <!-- Here you should have 6 children divs. Use grid to create the layout -->
+          
+          <div>
+            <div>
+                <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+                 <h3>Trillo Text Matching</h3>
+                <p>Using vertex AI MAtching Engine .trillo text matching provides end to end pressure it extracts from files and indexes for machining It Uses custom models for embedding.</p>
+             </div>
+            <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"
+             />
+             <h3>Trillo File manager</h3>
+             <p>Trillo Applications are customizable end-to-end applications (Open
+              Source Code). The can be used out of the box or extended..</p>
+             </div>
+            <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"
+             />
+             <h3>Trillo NLP</h3>
+             <p>Trillo Applications are customizable end-to-end applications (Open
+              Source Code). The can be used out of the box or extended.</p>
+            </div>
+            <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"
+             />
+             <h3>Trillo Vision AI</h3>
+             <p>Trillo Applications are customizable end-to-end applications (Open
+              Source Code). The can be used out of the box or extended.</p>
+            </div>
+            <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"
+             />
+             <h3>Trillo Document AI</h3>
+             <p>Trillo Applications are customizable end-to-end applications (Open
+              Source Code). The can be used out of the box or extended.</p>
+            </div>
+            <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"
+             />
+             <h3>Trillo DICOM</h3>
+             <p>Trillo Applications are customizable end-to-end applications (Open
+              Source Code). The can be used out of the box or extended.</p>
+            </div>
+          </div>
+      </div>
+      <p>
+        <div id="bottom">
+          <h1>Use Cases</h1>
+          <p>
+            Trillo has readymade templates for several use cases that can be
+            customized quickly to deliver the solutions as per your requirements.
+            Some of these templates are described below.
+          </p>
+          <div>
+            <!-- Here you should have 6 children divs. Use grid to create the layout -->
+            <div>
+              <h3>Data Warehouse</h3>
+              <ul>
+                <li>Ingest data from several data sources</li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+  
+            </div>
+            <div>
+              <h3>AI Driven workflows </h3>
+              <ul>
+                <li>Ingcst data from several data sources </li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>AI Vision</h3>
+              <ul>
+                <li>Ingest data from several data sources</li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Storage</h3>
+              <ul>
+                <li>Ingest data from several data sources</li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>New web application</h3>
+              <ul>
+                <li>Ingest data from several data sources</li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Natural language processing</h3>
+              <ul>
+                <li>Ingest data from several data sources</li>
+                <li>data transformation script</li>
+                <li>Data catching,creating materialized views.</li>
+                <li>Scheduling queries,federated queries to create materialixes views.</li>
+                <li>Scheduling data ingestio tasks </li>
+                <li>Extensive logginf and reporting of the processing pipeline.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </p>
+
+      
+    </div>
+  </body>
+</html>

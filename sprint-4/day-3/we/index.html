@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch assignment</title>
+    <style>
+        #movie-container{
+            display:grid;
+            width:90%;
+            margin:auto;
+            grid-template-columns: repeat(4,1fr);
+            gap:20px;
+            
+        }
+        #movie-container img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <input placeholder="search" id="search-inp">
+    <button id="search-btn">search</button><br>
+    <div id="movie-container"></div>
+
+    
+</body>
+</html>
+
+<script>
+    let container =document.getElementById("movie-container")
+
+ 
+    fetch("https://www.omdbapi.com/?apiKey=43805a03&s=movies")
+    .then((resObject) => {
+        return resObject.json()
+    })
+    .then((actualData) => {
+       displayProducts(actualData)
+    })
+
+    .catch((error) => {
+       console.log(error)
+    })
+
+   
+    function displayProducts(data){
+        data.Search.forEach((element) => {
+            let pro=document.createElement("div")
+
+            let Poster=document.createElement("img");
+            Poster.setAttribute("src",element.Poster)
+
+            let Title=document.createElement("h3")
+            Title.innerText=element.Title
+            
+            
+        
+            pro.append(Poster,Title)
+            
+            
+
+            container.append(pro)
+        })
+    }
+
+
+</script>

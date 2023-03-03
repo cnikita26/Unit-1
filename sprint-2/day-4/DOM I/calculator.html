@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+<body>
+    <input type="number" id="one" placeholder="enter 1st number" >
+    <input type="number" id="two" placeholder="enter 2nd number" > <br> <br>
+  
+        <button onclick="addition()">Add</button>
+        <button onclick="substractMe()">Substract</button>
+        <button onclick="divideMe()">Divide</button>
+        <button onclick="multiplyMe()">Multiply</button>
+   
+   
+</body>
+</html>
+<script>
+
+function addition(){
+    let x=document.querySelector("#one").value;
+    let z=document.querySelector("#two").value;
+    alert(Number(x)+Number(z))
+}
+  function substractMe(){
+    let x=document.querySelector("#one").value;
+    let z=document.querySelector("#two").value;
+
+    alert(Number(x)-Number(z));
+  }
+  function divideMe(){
+    let x=document.querySelector("#one").value;
+    let z=document.querySelector("#two").value;
+
+    alert(Number(x)/Number(z));
+  }
+  function multiplyMe(){
+    let x=document.querySelector("#one").value;
+    let z=document.querySelector("#two").value;
+
+    alert(Number(x)*Number(z));
+  }
+
+</script>
